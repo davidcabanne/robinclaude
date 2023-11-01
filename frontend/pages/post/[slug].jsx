@@ -16,12 +16,12 @@ const Post = ({ post, toggleDarkMode, handleToggleDarkMode }) => {
       const { style, children, _key } = item;
 
       if (style === "h3") {
-        const title = children.map((title) => title.text);
+        const title = children?.map((title) => title.text);
         return <h3 key={_key}>{title}</h3>;
       }
 
       if (style === "normal") {
-        const content = children.map((paragraph) => {
+        const content = children?.map((paragraph) => {
           const { text, _key } = paragraph;
           return text ? <p key={_key}>{text}</p> : "";
         });
