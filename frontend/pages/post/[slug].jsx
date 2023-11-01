@@ -71,12 +71,16 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context) {
   // It's important to default the slug so that it doesn't return "undefined"
-  const { slug = "" } = context.params;
-  const post = await client.fetch(query, { slug });
-  return {
-    props: {
-      post,
-    },
-  };
+  try {
+    const { slug = "" } = context.params;
+    const post = await client.fetch(query, { slug });
+    return {
+      props: {
+        post,
+      },
+    };
+  } catch (error) {
+    console.log(error);
+  }
 }
 export default Post;
