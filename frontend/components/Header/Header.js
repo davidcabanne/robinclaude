@@ -3,6 +3,7 @@ import * as _var from "../../styles/variables";
 
 import Logo from "./Logo";
 import Navigation from "./Navigation";
+import DarkMode from "./DarkMode";
 
 const Container = styled.header`
   position: fixed;
@@ -11,8 +12,17 @@ const Container = styled.header`
   display: flex;
   justify-content: center;
   align-items: center;
+  background: white;
+  border-bottom: 1px solid ${_var.primary_090};
   z-index: 900;
   ${_var.responsiveMargins}
+  transition: 200ms ${_var.cubicBezier};
+  transition-property: background, border-bottom;
+
+  &.active {
+    background: ${_var.dark_000};
+    border-bottom: 1px solid ${_var.primary_010};
+  }
 `;
 
 const Wrapper = styled.div`
@@ -24,12 +34,26 @@ const Wrapper = styled.div`
   align-items: end;
 `;
 
-export default function Header() {
+const Nav = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: ${_var.marginM};
+  margin-bottom: 6px;
+`;
+
+export default function Header({ toggleDarkMode, handleToggleDarkMode }) {
   return (
-    <Container>
+    <Container className={toggleDarkMode ? "active" : ""}>
       <Wrapper>
         <Logo />
-        <Navigation />
+        <Nav>
+          <Navigation />
+          <DarkMode
+            toggleDarkMode={toggleDarkMode}
+            handleToggleDarkMode={handleToggleDarkMode}
+          />
+        </Nav>
       </Wrapper>
     </Container>
   );

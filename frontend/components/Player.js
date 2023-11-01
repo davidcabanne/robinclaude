@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from "react";
 import styled, { keyframes } from "styled-components";
 import * as _var from "../styles/variables";
 
@@ -20,8 +21,6 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
 
-  animation: ${fadeIn} 1000ms ${_var.cubicBezier} forwards;
-
   & iframe {
     display: block;
     border: 0;
@@ -29,22 +28,59 @@ const Container = styled.div`
     padding: 0;
     width: 100%;
     height: 100%;
+    opacity: 0;
+  }
+
+  &.loaded {
+    & iframe {
+      animation: ${fadeIn} 500ms ${_var.cubicBezier} forwards;
+    }
   }
 `;
 
+const loadingFade = keyframes`
+0% {
+  opacity: 0;
+}
+50% {
+  opacity: 1;
+}
+100% {
+  opacity: 0;
+}
+`;
+
+const Loading = styled.p`
+  position: absolute;
+
+  animation: ${loadingFade} 1000ms ${_var.cubicBezier} infinite;
+`;
+
 export default function Player({ src }) {
+  const [isLoaded, setIsLoaded] = useState(false);
+  const handleOnLoad = (event) => {
+    event ? setIsLoaded(true) : "";
+  };
+
   return (
-    <Container style={{ background: src ? "transparent" : "#e6e8ef" }}>
+    <Container className={isLoaded ? "loaded" : ""}>
       {src ? (
         <iframe
           src={src}
           width="1280"
           height="720"
           allow="autoplay; fullscreen; picture-in-picture"
+          onLoad={(event) => {
+            handleOnLoad(event);
+          }}
+          style={{
+            background: src ? "transparent" : `${_var.primary_090}`,
+          }}
         ></iframe>
       ) : (
-        <p>The video you are looking does not exist</p>
+        <p>Loading...</p>
       )}
+      {!isLoaded && <Loading>Loading...</Loading>}
     </Container>
   );
 }

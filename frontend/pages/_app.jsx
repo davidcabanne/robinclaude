@@ -1,9 +1,6 @@
-// import { Inter } from "next/font/google";
-
-import { createGlobalStyle } from "styled-components";
+import React, { useState } from "react";
+import styled, { css, createGlobalStyle } from "styled-components";
 import * as _var from "../styles/variables";
-
-// const inter = Inter({ subsets: ["latin"] });
 
 const GlobalStyle = createGlobalStyle`
 *,
@@ -49,7 +46,15 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-family: 'Inter', Helvetica, sans-serif;
   font-size: 16px;
-  color: ${_var.primary_000};
+  color:  ${_var.primary_020};
+  transition: color 200ms ${_var.cubicBezier};
+
+  ${(props) =>
+    props.darkMode &&
+    css`
+      color: ${_var.primary_080};
+    `}
+
   overflow-x: hidden;
 }
 
@@ -58,6 +63,13 @@ html {
   height: -webkit-fill-available;
   scroll-behavior: smooth;
   background: white;
+  transition: background 200ms ${_var.cubicBezier};
+
+  ${(props) =>
+    props.darkMode &&
+    css`
+      background: ${_var.dark_000};
+    `}
 }
 
 a:not([class]) {
@@ -72,7 +84,43 @@ a:visited {
 p {
   font-size: 16px;
   line-height: 1.4;
+  color: ${_var.primary_040};
+  transition: color 200ms ${_var.cubicBezier};
+
+  ${(props) =>
+    props.darkMode &&
+    css`
+      color: ${_var.primary_070};
+    `}
 }
+
+input, textarea {
+    font-family: 'Inter', Helvetica, sans-serif;
+    background: ${_var.light200};
+    transition: color, background 200ms ${_var.cubicBezier};
+
+    ${(props) =>
+      props.darkMode &&
+      css`
+        color: ${_var.primary_080};
+        background: ${_var.primary_010};
+
+        &::placeholder {
+          color: ${_var.primary_040};
+        }
+      `}
+  }
+
+  input[type="submit"] {
+    background: ${_var.primary_020};
+    transition: background 200ms ${_var.cubicBezier};
+
+    ${(props) =>
+      props.darkMode &&
+      css`
+        background: ${_var.primary_020};
+      `}
+  }
 
 /* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
 @media (prefers-reduced-motion: reduce) {
@@ -91,11 +139,21 @@ p {
 }
 `;
 
-export default function App({ Component, pageProps }) {
+export default function App({ Component, pageProps, darkMode }) {
+  const [toggleDarkMode, setToggleDarkMode] = useState(false);
+
+  const handleToggleDarkMode = () => {
+    setToggleDarkMode(!toggleDarkMode);
+  };
+
   return (
     <>
-      <GlobalStyle />
-      <Component {...pageProps} />
+      <GlobalStyle darkMode={toggleDarkMode} />
+      <Component
+        {...pageProps}
+        toggleDarkMode={toggleDarkMode}
+        handleToggleDarkMode={handleToggleDarkMode}
+      />
     </>
   );
 }

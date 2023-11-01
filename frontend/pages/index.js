@@ -18,7 +18,7 @@ function urlFor(source) {
   return imageUrlBuilder(client).image(source);
 }
 
-const Index = ({ posts, categories }) => {
+const Index = ({ posts, categories, toggleDarkMode, handleToggleDarkMode }) => {
   const [categoryActive, setCategoryActive] = useState("All");
 
   const handleCategoryActive = (category) => {
@@ -26,12 +26,16 @@ const Index = ({ posts, categories }) => {
   };
 
   return (
-    <Layout>
+    <Layout
+      toggleDarkMode={toggleDarkMode}
+      handleToggleDarkMode={handleToggleDarkMode}
+    >
       <Section>
         <Categories
           categories={categories}
           categoryActive={categoryActive}
           handleCategoryActive={handleCategoryActive}
+          toggleDarkMode={toggleDarkMode}
         />
         <Grid>
           {posts.length > 0 &&
@@ -51,6 +55,7 @@ const Index = ({ posts, categories }) => {
                       <Link href={`/post/${encodeURIComponent(slug.current)}`}>
                         <Fade duration={500}>
                           <Picture>
+                            <p>{title}</p>
                             <Image
                               src={urlFor(mainImage).url()}
                               width={500}

@@ -11,7 +11,7 @@ import Group from "@/components/Form/Group";
 import Label from "@/components/Form/Label";
 import Error from "@/components/Form/Error";
 
-const Contact = () => {
+const Contact = ({ toggleDarkMode, handleToggleDarkMode }) => {
   const {
     register,
     handleSubmit,
@@ -20,10 +20,11 @@ const Contact = () => {
   } = useForm();
   const onSubmit = (data) => console.log(data);
 
-  console.log(watch("firstName")); // watch input value by passing the name of it
-
   return (
-    <Layout>
+    <Layout
+      toggleDarkMode={toggleDarkMode}
+      handleToggleDarkMode={handleToggleDarkMode}
+    >
       <Section>
         <About>
           <h1>Get in touch</h1>
@@ -43,6 +44,7 @@ const Contact = () => {
             <Group>
               <Label>First Name</Label>
               <input
+                type="text"
                 placeholder="First Name"
                 {...register("firstName", { required: true })}
               />
@@ -51,6 +53,7 @@ const Contact = () => {
             <Group>
               <Label>Last Name</Label>
               <input
+                type="text"
                 placeholder="Last Name"
                 {...register("lastName", { required: true })}
               />
@@ -60,7 +63,7 @@ const Contact = () => {
           <Fields>
             <Group>
               <Label>Phone</Label>
-              <input placeholder="Phone" {...register("phone")} />
+              <input type="text" placeholder="Phone" {...register("phone")} />
               <Error error={errors.phone} />
             </Group>
             <Group>
@@ -73,6 +76,13 @@ const Contact = () => {
               <Error error={errors.email} />
             </Group>
           </Fields>
+          <Group>
+            <Label>Message</Label>
+            <textarea
+              placeholder="Let's have a chat"
+              {...register("textarea", { required: true })}
+            ></textarea>
+          </Group>
           <input type="submit" />
         </Form>
       </Section>

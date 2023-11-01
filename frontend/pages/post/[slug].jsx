@@ -8,7 +8,7 @@ import Content from "@/components/Content";
 import Title from "@/components/Post/Title";
 import Back from "@/components/Post/Back";
 
-const Post = ({ post }) => {
+const Post = ({ post, toggleDarkMode, handleToggleDarkMode }) => {
   const { title, body, mainImage, video, categories } = post;
 
   const handleRenderContent = (body) => {
@@ -32,9 +32,12 @@ const Post = ({ post }) => {
   };
 
   return (
-    <Layout>
+    <Layout
+      toggleDarkMode={toggleDarkMode}
+      handleToggleDarkMode={handleToggleDarkMode}
+    >
       <Section>
-        <Back />
+        <Back toggleDarkMode={toggleDarkMode} />
         <Player src={video} />
         <Content>
           <Title>{title}</Title>

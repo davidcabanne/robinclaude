@@ -12,25 +12,20 @@ const Container = styled.form`
     padding-top: ${_var.marginXL};
   }
 
-  & input {
+  & input,
+  textarea {
     font-size: 16px;
     font-weight: 500;
     padding: 10px ${_var.marginS};
     border: none;
-    background: ${_var.light200};
     border-radius: 2px;
     outline: 2px solid rgba(0, 0, 0, 0);
-
-    &:focus {
-      outline: 2px solid ${_var.primary_010};
-    }
   }
 
   & input[type="submit"] {
     font-weight: 600;
     width: max-content;
     color: ${_var.light200};
-    background: ${_var.primary_000};
     padding: ${_var.marginXS} ${_var.marginS};
     border-radius: 64px;
     cursor: pointer;
@@ -40,6 +35,13 @@ const Container = styled.form`
         opacity: 0.5;
       }
     }
+  }
+
+  & textarea {
+    resize: none;
+    width: 100%;
+    height: auto;
+    min-height: 128px;
   }
 `;
 

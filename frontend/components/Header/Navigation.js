@@ -3,11 +3,16 @@ import styled from "styled-components";
 import * as _var from "../../styles/variables";
 
 const Nav = styled.nav`
-  margin-bottom: 6px;
-
   & ul {
     display: flex;
     gap: ${_var.marginM};
+  }
+  & li {
+    transition: opacity 150ms ${_var.cubicBezier};
+
+    &:hover {
+      opacity: 0.5;
+    }
   }
 `;
 
@@ -15,7 +20,7 @@ export default function Navigation() {
   return (
     <Nav>
       <ul>
-        {/* <li>
+        <li>
           <Link href="/">Projects</Link>
         </li>
         <li>
@@ -23,7 +28,7 @@ export default function Navigation() {
         </li>
         <li>
           <Link href="/">Reel</Link>
-        </li> */}
+        </li>
         <li>
           <Link href="/contact">Contact</Link>
         </li>

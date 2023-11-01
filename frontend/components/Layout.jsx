@@ -18,10 +18,17 @@ const Container = styled.div`
   }
 `;
 
-export default function CommonContainer({ children }) {
+export default function CommonContainer({
+  children,
+  toggleDarkMode,
+  handleToggleDarkMode,
+}) {
   return (
     <Container>
-      <Header />
+      <Header
+        toggleDarkMode={toggleDarkMode}
+        handleToggleDarkMode={handleToggleDarkMode}
+      />
       {children}
     </Container>
   );
