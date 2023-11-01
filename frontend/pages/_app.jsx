@@ -49,6 +49,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-family: 'Inter', Helvetica, sans-serif;
   font-size: 16px;
+  color: ${_var.primary_000};
   overflow-x: hidden;
 }
 

@@ -1,4 +1,3 @@
-import Link from "next/link";
 import groq from "groq";
 import client from "../../client";
 

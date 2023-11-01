@@ -4,37 +4,42 @@ import * as _var from "../../styles/variables";
 
 const Container = styled.div`
   width: 100%;
-  display: flex;
-  gap: ${_var.marginXS};
   padding-top: ${_var.marginM};
   padding-bottom: ${_var.marginM};
   z-index: 800;
 
   & a {
-    color: #b5b5b5;
-
-    & span {
-      transition: color 100ms ${_var.cubicBezier};
-    }
+    width: max-content;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: ${_var.marginXS};
+    color: ${_var.primary_080};
 
     & svg {
-      fill: #b5b5b5;
       height: 12px;
-      stroke: #b5b5b5;
+      fill: ${_var.primary_080};
+      stroke: ${_var.primary_080};
       stroke-width: 16;
       margin-right: ${_var.marginXS};
       transform: rotate(180deg);
       transition: color, stroke 100ms ${_var.cubicBezier};
     }
 
+    & span {
+      transition: color, transform 100ms ${_var.cubicBezier};
+    }
+
     @media ${_var.device.tablet_min} {
       &:hover {
-        & span {
-          color: black;
-        }
         & svg {
-          fill: black;
-          stroke: black;
+          fill: ${_var.primary_000};
+          stroke: ${_var.primary_000};
+        }
+
+        & span {
+          color: ${_var.primary_000};
+          transform: translateX(-4px);
         }
       }
     }

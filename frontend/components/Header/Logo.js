@@ -4,6 +4,10 @@ import * as _var from "../../styles/variables";
 
 const Font = styled.div`
   font-size: ${_var.marginL};
+
+  @media ${_var.device.tablet_max} {
+    font-size: ${_var.marginM};
+  }
 `;
 
 export default function Logo() {

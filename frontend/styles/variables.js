@@ -1,9 +1,23 @@
 // COLORS
 //
-export const black = "#000000";
-export const dark = "#333";
-export const primary = "#56FFFE";
-export const secondary = "#DEFFFE";
+export const primary_000 = "#171717";
+export const primary_010 = "#2e2e2e";
+export const primary_020 = "#454545";
+export const primary_030 = "#5d5d5d";
+export const primary_040 = "#747474";
+export const primary_050 = "#8b8b8b";
+export const primary_060 = "#a2a2a2";
+export const primary_70 = "#b9b9b9";
+export const primary_080 = "#d1d1d1";
+export const primary_090 = "#e8e8e8";
+export const primary_100 = "#ffffff";
+
+export const grey200 = "#706563";
+export const grey300 = "#748386";
+export const light100 = "#D8DAD1";
+export const light200 = "#F1F2EB";
+export const light300 = "#FBF5F3";
+export const danger = "#FF6F59";
 
 export const headerHeight = "112px";
 

@@ -40,9 +40,7 @@ export default function Player({ src }) {
           src={src}
           width="1280"
           height="720"
-          frameBorder="0"
           allow="autoplay; fullscreen; picture-in-picture"
-          allowFullScreen
         ></iframe>
       ) : (
         <p>The video you are looking does not exist</p>
