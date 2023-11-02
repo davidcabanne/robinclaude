@@ -8,7 +8,7 @@ import groq from "groq";
 import imageUrlBuilder from "@sanity/image-url";
 import client from "../client";
 
-import Layout from "../components/Layout";
+import Layout from "@/components/Layout";
 import Section from "@/components/Section";
 import Grid from "@/components/home/Grid";
 import Categories from "@/components/home/Categories";

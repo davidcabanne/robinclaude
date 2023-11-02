@@ -1,8 +1,8 @@
 import groq from "groq";
 import client from "../../client";
 
-import Layout from "../../components/Layout";
-import Section from "../../components/Section";
+import Layout from "@/components/Layout";
+import Section from "@/components/Section";
 import Player from "@/components/Player";
 import Content from "@/components/Content";
 import Title from "@/components/post/Title";
