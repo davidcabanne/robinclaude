@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import * as _var from "../styles/variables";
 
-import Header from "./header";
+import Header from "./Header/Header";
 
 // STYLES
 const Container = styled.div`

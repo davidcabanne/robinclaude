@@ -10,8 +10,8 @@ import client from "../client";
 
 import Layout from "@/components/Layout";
 import Section from "@/components/Section";
-import Grid from "@/components/home/Grid";
-import Categories from "@/components/home/Categories";
+import Grid from "@/components/Home/Grid";
+import Categories from "@/components/Home/Categories";
 import Picture from "@/components/Picture";
 
 function urlFor(source) {

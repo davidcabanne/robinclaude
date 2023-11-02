@@ -2,10 +2,10 @@ import * as _var from "../../styles/variables";
 
 import Layout from "@/components/Layout";
 import Section from "@/components/Section";
-import Group from "@/components/contact/Group";
-import Footer from "@/components/contact/Footer";
-import Title from "@/components/contact/Title";
-import Button from "@/components/common/Button";
+import Group from "@/components/Contact/Group";
+import Footer from "@/components/Contact/Footer";
+import Title from "@/components/Contact/Title";
+import Button from "@/components/Common/Button";
 
 const Contact = ({ toggleDarkMode, handleToggleDarkMode }) => {
   return (
