@@ -18,7 +18,7 @@ const Contact = ({ toggleDarkMode, handleToggleDarkMode }) => {
       handleToggleDarkMode={handleToggleDarkMode}
     >
       <Section>
-        <Title>Get in touch</Title>
+        <Title toggleDarkMode={toggleDarkMode}>Get in touch</Title>
         <Group>
           <div
             style={{
