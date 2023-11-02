@@ -2,13 +2,9 @@ import Link from "next/link";
 import styled from "styled-components";
 import * as _var from "../../styles/variables";
 
-const Font = styled.div`
-  font-size: ${_var.marginL};
+const Container = styled.span`
   transition: opacity 150ms ${_var.cubicBezier};
 
-  @media ${_var.device.tablet_max} {
-    font-size: ${_var.marginM};
-  }
   @media ${_var.device.tablet_min} {
     &:hover {
       opacity: 0.7;
@@ -16,10 +12,25 @@ const Font = styled.div`
   }
 `;
 
+const Font = styled.span`
+  font-size: ${_var.marginM};
+
+  @media ${_var.device.tablet_max} {
+    font-size: ${_var.marginM};
+  }
+`;
+
+const Jobs = styled.p`
+  margin-left: 2px;
+`;
+
 export default function Logo() {
   return (
     <Link href="/">
-      <Font>Robin Claude</Font>
+      <Container>
+        <Font>Robin Claude</Font>
+        <Jobs>Director / Editor</Jobs>
+      </Container>
     </Link>
   );
 }
