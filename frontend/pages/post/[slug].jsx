@@ -9,7 +9,7 @@ import Title from "@/components/Post/Title";
 import Back from "@/components/Post/Back";
 
 const Post = ({ post, toggleDarkMode, handleToggleDarkMode }) => {
-  const { title, body, mainImage, video, categories } = post;
+  const { title, body, mainImage, video, categories } = post ?? {};
 
   const handleRenderContent = (body) => {
     const elements = body?.map((item) => {
