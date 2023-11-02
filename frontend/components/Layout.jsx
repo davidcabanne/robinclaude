@@ -22,12 +22,14 @@ export default function CommonContainer({
   children,
   toggleDarkMode,
   handleToggleDarkMode,
+  selectedCat,
 }) {
   return (
     <Container>
       <Header
         toggleDarkMode={toggleDarkMode}
         handleToggleDarkMode={handleToggleDarkMode}
+        selectedCat={selectedCat}
       />
       {children}
     </Container>

@@ -42,13 +42,17 @@ const Nav = styled.div`
   margin-bottom: 6px;
 `;
 
-export default function Header({ toggleDarkMode, handleToggleDarkMode }) {
+export default function Header({
+  toggleDarkMode,
+  handleToggleDarkMode,
+  selectedCat,
+}) {
   return (
     <Container className={toggleDarkMode ? "active" : ""}>
       <Wrapper>
         <Logo />
         <Nav>
-          <Navigation />
+          <Navigation selectedCat={selectedCat} />
           <DarkMode
             toggleDarkMode={toggleDarkMode}
             handleToggleDarkMode={handleToggleDarkMode}

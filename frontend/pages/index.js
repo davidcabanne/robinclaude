@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import * as _var from "../styles/variables";
@@ -19,32 +20,32 @@ function urlFor(source) {
 }
 
 const Index = ({ posts, categories, toggleDarkMode, handleToggleDarkMode }) => {
-  const [categoryActive, setCategoryActive] = useState("All");
-
-  const handleCategoryActive = (category) => {
-    setCategoryActive(category);
-  };
+  const searchParams = useSearchParams();
+  const selectedCat = searchParams.get("category");
 
   return (
     <Layout
       toggleDarkMode={toggleDarkMode}
       handleToggleDarkMode={handleToggleDarkMode}
+      selectedCat={selectedCat}
     >
       <Section>
-        <Categories
-          categories={categories}
-          categoryActive={categoryActive}
-          handleCategoryActive={handleCategoryActive}
-          toggleDarkMode={toggleDarkMode}
-        />
+        <Categories categories={categories} toggleDarkMode={toggleDarkMode} />
         <Grid>
           {posts.length > 0 &&
             posts
               .filter((post) => {
-                if (post.categories[0]._ref === categoryActive) {
+                const categoryFilter = categories.filter((item) => {
+                  if (item._id === post.categories[0]._ref) {
+                    return item;
+                  }
+                });
+                const categoryTitle = categoryFilter[0].title.toLowerCase();
+
+                if (categoryTitle === selectedCat) {
                   return post;
                 }
-                if (categoryActive === "All") {
+                if (selectedCat === "all" || selectedCat === null) {
                   return post;
                 }
               })

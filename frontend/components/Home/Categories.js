@@ -1,4 +1,5 @@
-import React from "react";
+import { useSearchParams } from "next/navigation";
+import Link from "next/link";
 import { Fragment } from "react";
 
 import styled from "styled-components";
@@ -12,16 +13,17 @@ const Container = styled.div`
   padding-bottom: ${_var.marginM};
   z-index: 800;
 
-  & button,
+  & a,
   span {
     color: ${_var.primary_080};
     font-size: 16px;
   }
 
-  & button {
+  & a {
     background: none;
     border: none;
     cursor: pointer;
+    text-decoration: none;
 
     &.categoryActive {
       color: ${_var.primary_020};
@@ -57,22 +59,20 @@ const Container = styled.div`
   }
 `;
 
-export default function Categories({
-  categories,
-  categoryActive,
-  handleCategoryActive,
-  toggleDarkMode,
-}) {
-  const handleClasses = (categoryActive, categoryId, darkMode) => {
+export default function Categories({ categories, toggleDarkMode }) {
+  const searchParams = useSearchParams();
+  const selectedCat = searchParams.get("category");
+
+  const handleClasses = (categoryActive, categoryTitle, darkMode) => {
     if (darkMode === false) {
-      if (categoryActive === categoryId) {
+      if (categoryActive === categoryTitle.toLowerCase()) {
         return "categoryActive";
       } else {
         return "categoryInactive";
       }
     }
     if (darkMode === true) {
-      if (categoryActive === categoryId) {
+      if (categoryActive === categoryTitle.toLowerCase()) {
         return "categoryDarkActive";
       } else {
         return "categoryDarkInactive";
@@ -82,25 +82,25 @@ export default function Categories({
 
   return (
     <Container>
-      <button
-        onClick={() => handleCategoryActive("All")}
-        className={handleClasses(categoryActive, "All", toggleDarkMode)}
+      <Link
+        href={`?category=all`}
+        className={handleClasses(selectedCat, "All", toggleDarkMode)}
       >
         All
-      </button>
+      </Link>
       <span className={toggleDarkMode ? "active" : ""}>/</span>
       {categories.map((category) => (
         <Fragment key={category._id}>
-          <button
-            onClick={() => handleCategoryActive(category._id)}
+          <Link
+            href={`?category=${category.title.toLowerCase()}`}
             className={handleClasses(
-              categoryActive,
-              category._id,
+              selectedCat,
+              category.title,
               toggleDarkMode
             )}
           >
             {category.title}
-          </button>
+          </Link>
           <span className={toggleDarkMode ? "active" : ""}>/</span>
         </Fragment>
       ))}
