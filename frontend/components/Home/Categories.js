@@ -65,6 +65,9 @@ export default function Categories({ categories, toggleDarkMode }) {
 
   const handleClasses = (categoryActive, categoryTitle, darkMode) => {
     if (darkMode === false) {
+      if (categoryActive === null && categoryTitle === "All") {
+        return "categoryActive";
+      }
       if (categoryActive === categoryTitle.toLowerCase()) {
         return "categoryActive";
       } else {
@@ -72,6 +75,9 @@ export default function Categories({ categories, toggleDarkMode }) {
       }
     }
     if (darkMode === true) {
+      if (categoryActive === null && categoryTitle === "All") {
+        return "categoryDarkActive";
+      }
       if (categoryActive === categoryTitle.toLowerCase()) {
         return "categoryDarkActive";
       } else {

@@ -33,29 +33,12 @@ const Nav = styled.nav`
 export default function Navigation({ selectedCat }) {
   const router = useRouter();
 
-  const handleRouter = (url) => {
-    if (router.pathname !== "/") {
-      router.push(`/${url}`);
-    }
-    return url;
-  };
-
   return (
     <Nav>
       <ul>
         <li>
           <Link
-            onClick={() => handleRouter(`?category=projects`)}
-            href={`?category=projects`}
-            className={selectedCat === "projects" ? "active" : ""}
-          >
-            Projects
-          </Link>
-        </li>
-        <li>
-          <Link
-            onClick={() => handleRouter(`?category=editing`)}
-            href={`?category=editing`}
+            href={`/?category=editing`}
             className={selectedCat === "editing" ? "active" : ""}
           >
             Editing
@@ -63,8 +46,16 @@ export default function Navigation({ selectedCat }) {
         </li>
         <li>
           <Link
-            onClick={() => handleRouter(`?category=reel`)}
-            href={`?category=reel`}
+            href={`/?category=projects`}
+            className={selectedCat === "projects" ? "active" : ""}
+          >
+            Projects
+          </Link>
+        </li>
+
+        <li>
+          <Link
+            href={`/?category=reel`}
             className={selectedCat === "reel" ? "active" : ""}
           >
             Reel
