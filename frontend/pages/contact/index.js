@@ -1,90 +1,58 @@
-import { useForm } from "react-hook-form";
-
 import * as _var from "../../styles/variables";
 
 import Layout from "@/components/Layout";
 import Section from "@/components/Section";
-import About from "@/components/Form/About";
-import Form from "@/components/Form/Form";
-import Fields from "@/components/Form/Fields";
-import Group from "@/components/Form/Group";
-import Label from "@/components/Form/Label";
-import Error from "@/components/Form/Error";
+import Group from "@/components/contact/Group";
+import Footer from "@/components/contact/Footer";
+import Title from "@/components/contact/Title";
+import Button from "@/components/common/Button";
 
 const Contact = ({ toggleDarkMode, handleToggleDarkMode }) => {
-  const {
-    register,
-    handleSubmit,
-    watch,
-    formState: { errors },
-  } = useForm();
-  const onSubmit = (data) => console.log(data);
-
   return (
     <Layout
       toggleDarkMode={toggleDarkMode}
       handleToggleDarkMode={handleToggleDarkMode}
     >
       <Section>
-        <About>
-          <h1>Get in touch</h1>
-          <p>
-            I am a filmmaker based in Bordeaux, France. I have extensive
-            experience with both digital and film formats. I have traveled all
-            over the world and worked on hundreds of projects, from large to
-            small and everything in between.
-            <br />
-            <br />
-            Please reach out if you are interested in collaborating!
-          </p>
-        </About>
-
-        <Form onSubmit={handleSubmit(onSubmit)}>
-          <Fields>
-            <Group>
-              <Label>First Name</Label>
-              <input
-                type="text"
-                placeholder="First Name"
-                {...register("firstName", { required: true })}
-              />
-              <Error error={errors.firstName} />
-            </Group>
-            <Group>
-              <Label>Last Name</Label>
-              <input
-                type="text"
-                placeholder="Last Name"
-                {...register("lastName", { required: true })}
-              />
-              <Error error={errors.lastName} />
-            </Group>
-          </Fields>
-          <Fields>
-            <Group>
-              <Label>Phone</Label>
-              <input type="text" placeholder="Phone" {...register("phone")} />
-              <Error error={errors.phone} />
-            </Group>
-            <Group>
-              <Label>Email</Label>
-              <input
-                placeholder="Email"
-                type="email"
-                {...register("email", { required: true })}
-              />
-              <Error error={errors.email} />
-            </Group>
-          </Fields>
-          <Group>
-            <Label>Message</Label>
-            <textarea
-              placeholder="Let's have a chat"
-              {...register("textarea", { required: true })}
-            ></textarea>
-          </Group>
-          <input type="submit" />
-        </Form>
+        <Title>Get in touch</Title>
+        <Group>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: `${_var.marginM}`,
+            }}
+          >
+            <p>
+              I am a filmmaker based in Bordeaux, France. I have extensive
+              experience with both digital and film formats. I have traveled all
+              over the world and worked on hundreds of projects, from large to
+              small and everything in between.
+            </p>
+            <p>Please reach out if you are interested in collaborating!</p>
+            <Footer>
+              <Button>Email me!</Button>
+              <a
+                href="https://vimeo.com/robinclaude"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Vimeo
+              </a>
+              <a
+                href="https://www.instagram.com/robinclaude_/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Instagram
+              </a>
+            </Footer>
+          </div>
+          <img
+            src="https://cdn.sanity.io/images/7oc2w4sf/production/ae1209f6112e4f671b93abe207a9454d92d0bbfc-3601x2433.jpg"
+            style={{ filter: "grayscale(1)" }}
+          />
+        </Group>
       </Section>
     </Layout>
   );

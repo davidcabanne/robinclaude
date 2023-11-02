@@ -5,8 +5,8 @@ import Layout from "../../components/Layout";
 import Section from "../../components/Section";
 import Player from "@/components/Player";
 import Content from "@/components/Content";
-import Title from "@/components/Post/Title";
-import Back from "@/components/Post/Back";
+import Title from "@/components/post/Title";
+import Back from "@/components/post/Back";
 
 const Post = ({ post, toggleDarkMode, handleToggleDarkMode }) => {
   const { title, body, mainImage, video, categories } = post ?? {};

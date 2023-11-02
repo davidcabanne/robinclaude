@@ -14,6 +14,10 @@ const Nav = styled.nav`
       opacity: 0.5;
     }
   }
+
+  @media ${_var.device.tablet_max} {
+    display: none;
+  }
 `;
 
 export default function Navigation() {

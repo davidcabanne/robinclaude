@@ -6,11 +6,15 @@ const Ul = styled.ul`
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: ${_var.marginL};
+  gap: ${_var.marginM};
 
   @media ${_var.device.tablet_max} {
     grid-template-columns: 1fr;
-    gap: ${_var.marginL};
+    gap: ${_var.marginM};
+  }
+
+  @media ${_var.device.mobileS_max} {
+    gap: ${_var.marginS};
   }
 
   @media ${_var.device.tablet_min} {

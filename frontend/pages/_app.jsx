@@ -81,6 +81,16 @@ a:visited {
     color: inherit;
 }
 
+h1, h2 {
+  line-height: 0.9;
+}
+h3, h4 {
+  line-height: 1.1;
+}
+h5, h6 {
+  line-height: 1.2;
+}
+
 p {
   font-size: 16px;
   line-height: 1.4;
@@ -119,6 +129,21 @@ input, textarea {
       props.darkMode &&
       css`
         background: ${_var.primary_020};
+      `}
+  }
+
+  button {
+    border: none;
+    color: ${_var.primary_100};
+    background: ${_var.success100};
+    transition: 200ms ${_var.cubicBezier};
+    transition-property: color, background;
+
+    ${(props) =>
+      props.darkMode &&
+      css`
+        color: ${_var.primary_010};
+        background: ${_var.primary_090};
       `}
   }
 
