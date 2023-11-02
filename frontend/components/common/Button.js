@@ -2,6 +2,7 @@ import styled from "styled-components";
 import * as _var from "../../styles/variables";
 
 const Btn = styled.button`
+  font-size: ${_var.marginS};
   font-weight: 600;
   width: max-content;
   padding: 12px 24px;

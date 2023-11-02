@@ -10,7 +10,14 @@ const Container = styled.section`
   justify-content: center;
   align-items: start;
   padding-top: calc(${_var.headerHeight});
-  padding-bottom: ${_var.marginXXL};
+  padding-bottom: ${_var.marginXL};
+
+  @media ${_var.device.tablet_max} {
+    padding-bottom: ${_var.marginL};
+  }
+  @media ${_var.device.mobileL_max} {
+    padding-bottom: ${_var.marginM};
+  }
 `;
 
 export default function Section({ children }) {

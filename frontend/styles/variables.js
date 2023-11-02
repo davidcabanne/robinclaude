@@ -76,6 +76,9 @@ padding: 0px ${marginL};
 @media ${device.tablet_max} {
   padding: 0px ${marginM};
 }
+@media ${device.mobileL_max} {
+  padding: 0px ${marginS};
+}
 `;
 
 // ANIMATION STYLES

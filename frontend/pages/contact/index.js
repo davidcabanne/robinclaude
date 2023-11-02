@@ -1,3 +1,4 @@
+import Image from "next/image";
 import * as _var from "../../styles/variables";
 
 import Layout from "@/components/Layout";
@@ -6,6 +7,9 @@ import Group from "@/components/contact/Group";
 import Footer from "@/components/contact/Footer";
 import Title from "@/components/contact/Title";
 import Button from "@/components/common/Button";
+
+import instagram from "../../public/instagram.svg";
+import vimeo from "../../public/vimeo.svg";
 
 const Contact = ({ toggleDarkMode, handleToggleDarkMode }) => {
   return (
@@ -30,27 +34,43 @@ const Contact = ({ toggleDarkMode, handleToggleDarkMode }) => {
               small and everything in between.
             </p>
             <p>Please reach out if you are interested in collaborating!</p>
+            <Button>Email me!</Button>
             <Footer>
-              <Button>Email me!</Button>
+              <p>You can also watch my stuffs on</p>
               <a
                 href="https://vimeo.com/robinclaude"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Vimeo
+                <Image
+                  src={vimeo}
+                  alt="Check my videos on Vimeo"
+                  height={24}
+                  width={60}
+                  // style={{ height: "20px", width: "60px" }}
+                />
               </a>
+              <p>and</p>
               <a
                 href="https://www.instagram.com/robinclaude_/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Instagram
+                <Image
+                  src={instagram}
+                  alt="Follow me on Instagram"
+                  height={20}
+                  width={20}
+                  style={{ height: "20px", width: "20px" }}
+                />
               </a>
             </Footer>
           </div>
-          <img
-            src="https://cdn.sanity.io/images/7oc2w4sf/production/ae1209f6112e4f671b93abe207a9454d92d0bbfc-3601x2433.jpg"
-            style={{ filter: "grayscale(1)" }}
+          <Image
+            src="https://cdn.sanity.io/images/7oc2w4sf/production/7218f89863829051a0acc1d6a619c8c981dbed09-2048x1366.jpg"
+            width={2048}
+            height={1366}
+            alt="Robin Claude holding a camera"
           />
         </Group>
       </Section>

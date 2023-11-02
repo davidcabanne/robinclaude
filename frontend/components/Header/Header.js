@@ -1,9 +1,12 @@
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import * as _var from "../../styles/variables";
 
 import Logo from "./Logo";
 import Navigation from "./Navigation";
+import NavigationMobile from "./NavigationMobile";
 import DarkMode from "./DarkMode";
+import Menu from "./Menu";
 
 const Container = styled.header`
   position: fixed;
@@ -32,14 +35,29 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: end;
+
+  @media ${_var.device.tablet_max} {
+    align-items: start;
+  }
 `;
 
 const Nav = styled.div`
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: end;
   gap: ${_var.marginM};
-  margin-bottom: 6px;
+
+  @media ${_var.device.tablet_max} {
+    margin-top: 4px;
+    align-items: center;
+    gap: 24px;
+  }
+  @media ${_var.device.mobileL_max} {
+    gap: 16px;
+  }
+  @media ${_var.device.mobileS_max} {
+    gap: 8px;
+  }
 `;
 
 export default function Header({
@@ -47,15 +65,41 @@ export default function Header({
   handleToggleDarkMode,
   selectedCat,
 }) {
+  const [menuActive, setMenuActive] = useState(false);
+
+  const handleToggleMenu = () => {
+    setMenuActive(!menuActive);
+  };
+
+  useEffect(() => {
+    const body = document.body;
+    if (menuActive) {
+      body.classList.add("menuActive");
+    } else {
+      body.classList.remove("menuActive");
+    }
+  }, [menuActive]);
+
   return (
     <Container className={toggleDarkMode ? "active" : ""}>
       <Wrapper>
         <Logo />
         <Nav>
           <Navigation selectedCat={selectedCat} />
+          <NavigationMobile
+            selectedCat={selectedCat}
+            toggleDarkMode={toggleDarkMode}
+            handleToggleMenu={handleToggleMenu}
+            menuActive={menuActive}
+          />
           <DarkMode
             toggleDarkMode={toggleDarkMode}
             handleToggleDarkMode={handleToggleDarkMode}
+          />
+          <Menu
+            toggleDarkMode={toggleDarkMode}
+            handleToggleMenu={handleToggleMenu}
+            menuActive={menuActive}
           />
         </Nav>
       </Wrapper>

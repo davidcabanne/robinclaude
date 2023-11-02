@@ -2,6 +2,7 @@ import styled, { keyframes } from "styled-components";
 import * as _var from "../../styles/variables";
 
 const Container = styled.div`
+  position: relative;
   width: 24px;
   height: 24px;
   background: ${_var.primary_020};
@@ -9,6 +10,7 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 2px;
 
   & svg {
     width: 20px;
@@ -16,6 +18,10 @@ const Container = styled.div`
 
   &.active {
     background: ${_var.primary_090};
+  }
+
+  @media ${_var.device.tablet_max} {
+    margin-bottom: 0px;
   }
 `;
 

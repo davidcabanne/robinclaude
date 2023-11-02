@@ -3,6 +3,8 @@ import styled from "styled-components";
 import * as _var from "../../styles/variables";
 
 const Container = styled.span`
+  position: relative;
+  z-index: 998;
   transition: opacity 150ms ${_var.cubicBezier};
 
   @media ${_var.device.tablet_min} {
@@ -18,10 +20,17 @@ const Font = styled.span`
   @media ${_var.device.tablet_max} {
     font-size: ${_var.marginM};
   }
+  @media ${_var.device.mobileS_max} {
+    font-size: 24px;
+  }
 `;
 
 const Jobs = styled.p`
   margin-left: 2px;
+
+  @media ${_var.device.mobileS_max} {
+    font-size: 14px;
+  }
 `;
 
 export default function Logo() {
