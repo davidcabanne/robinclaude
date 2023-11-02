@@ -13,11 +13,10 @@ const Container = styled.div`
     color: ${_var.primary_100};
     font-size: 32px;
     text-align: center;
-    padding: ${_var.marginS};
+    padding: ${_var.marginM};
 
-    @media ${_var.device.tablet_max} {
-      font-size: 16px;
-      padding: ${_var.marginXS};
+    @media ${_var.device.mobileL_max} {
+      font-size: clamp(16px, 8vw, 24px);
     }
   }
 

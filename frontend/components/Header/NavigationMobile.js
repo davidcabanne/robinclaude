@@ -18,7 +18,7 @@ const Nav = styled.nav`
   transition-delay: 200ms;
 
   ${(props) =>
-    props.toggleDarkMode &&
+    props.$toggleDarkMode &&
     css`
       background: ${_var.primary_000};
     `}
@@ -74,7 +74,10 @@ export default function Navigation({
   const router = useRouter();
 
   return (
-    <Nav className={menuActive ? "active" : ""} toggleDarkMode={toggleDarkMode}>
+    <Nav
+      className={menuActive ? "active" : ""}
+      $toggleDarkMode={toggleDarkMode}
+    >
       <ul>
         <li>
           <Link

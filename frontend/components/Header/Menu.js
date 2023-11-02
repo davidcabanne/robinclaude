@@ -16,7 +16,7 @@ const Container = styled.button`
     transition-property: background, opacity, transform;
 
     ${(props) =>
-      props.toggleDarkMode &&
+      props.$toggleDarkMode &&
       css`
         background: ${_var.primary_090};
       `}
@@ -46,7 +46,7 @@ export default function Menu({ toggleDarkMode, handleToggleMenu, menuActive }) {
     <Container
       onClick={handleToggleMenu}
       className={menuActive ? "active" : ""}
-      toggleDarkMode={toggleDarkMode}
+      $toggleDarkMode={toggleDarkMode}
     >
       <span></span>
       <span></span>
