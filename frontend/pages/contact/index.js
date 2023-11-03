@@ -8,8 +8,8 @@ import Footer from "@/components/contact/Footer";
 import Title from "@/components/contact/Title";
 import Button from "@/components/common/Button";
 
-import instagram from "../../public/instagram.svg";
-import vimeo from "../../public/vimeo.svg";
+import instagram from "../../public/images/instagram.svg";
+import vimeo from "../../public/images/vimeo.svg";
 
 const Contact = ({ toggleDarkMode, handleToggleDarkMode }) => {
   return (
@@ -47,7 +47,6 @@ const Contact = ({ toggleDarkMode, handleToggleDarkMode }) => {
                   alt="Check my videos on Vimeo"
                   height={24}
                   width={60}
-                  // style={{ height: "20px", width: "60px" }}
                 />
               </a>
               <p>and</p>
@@ -68,8 +67,13 @@ const Contact = ({ toggleDarkMode, handleToggleDarkMode }) => {
           </div>
           <Image
             src="https://cdn.sanity.io/images/7oc2w4sf/production/7218f89863829051a0acc1d6a619c8c981dbed09-2048x1366.jpg"
+            priority={true}
             width={2048}
             height={1366}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            quality={50}
+            placeholder="blur"
+            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mO8uBYAAlUBgHaEmg0AAAAASUVORK5CYII="
             alt="Robin Claude holding a camera"
           />
         </Group>

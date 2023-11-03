@@ -1,4 +1,5 @@
 import React from "react";
+import Head from "next/head";
 import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
@@ -43,7 +44,7 @@ const Index = ({ posts, categories, toggleDarkMode, handleToggleDarkMode }) => {
           }
         })
         .map(
-          ({ _id, title, slug = "", mainImage }) =>
+          ({ _id, title, slug = "", mainImage, imageDescription }) =>
             slug && (
               <li key={_id}>
                 <Link href={`/post/${encodeURIComponent(slug.current)}`}>
@@ -55,7 +56,7 @@ const Index = ({ posts, categories, toggleDarkMode, handleToggleDarkMode }) => {
                         width={500}
                         height={300}
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                        alt={title}
+                        alt={imageDescription}
                         placeholder="blur"
                         blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mO8uBYAAlUBgHaEmg0AAAAASUVORK5CYII="
                       />

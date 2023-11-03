@@ -47,6 +47,7 @@ export default function Menu({ toggleDarkMode, handleToggleMenu, menuActive }) {
       onClick={handleToggleMenu}
       className={menuActive ? "active" : ""}
       $toggleDarkMode={toggleDarkMode}
+      aria-label="menu"
     >
       <span></span>
       <span></span>

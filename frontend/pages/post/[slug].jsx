@@ -38,7 +38,7 @@ const Post = ({ post, toggleDarkMode, handleToggleDarkMode }) => {
     >
       <Section>
         <Back toggleDarkMode={toggleDarkMode} />
-        <Player src={video} />
+        <Player src={video} title={title} />
         <Content>
           <Title>{title}</Title>
           {handleRenderContent(body)}

@@ -56,7 +56,7 @@ const Loading = styled.p`
   animation: ${loadingFade} 1000ms ${_var.cubicBezier} infinite;
 `;
 
-export default function Player({ src }) {
+export default function Player({ src, title }) {
   const [isLoaded, setIsLoaded] = useState(false);
   const handleOnLoad = (event) => {
     event ? setIsLoaded(true) : "";
@@ -66,6 +66,7 @@ export default function Player({ src }) {
     <Container className={isLoaded ? "loaded" : ""}>
       {src ? (
         <iframe
+          title={title}
           src={src}
           width="1280"
           height="720"
