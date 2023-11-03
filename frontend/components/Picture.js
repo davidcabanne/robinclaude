@@ -11,12 +11,15 @@ const Container = styled.div`
     position: absolute;
     pointer-events: none;
     color: ${_var.primary_100};
-    font-size: 32px;
+    font-size: 24px;
     text-align: center;
     padding: ${_var.marginM};
 
     @media ${_var.device.mobileL_max} {
       font-size: clamp(16px, 8vw, 24px);
+    }
+    @media ${_var.device.tablet_max} {
+      display: none;
     }
   }
 

@@ -86,6 +86,27 @@ export default function Categories({ categories, toggleDarkMode }) {
     }
   };
 
+  const handleOrder = (category, type) => {
+    if (category === "Films" && type === "link") {
+      return 3;
+    }
+    if (category === "Films" && type === "span") {
+      return 4;
+    }
+    if (category === "Editing" && type === "link") {
+      return 5;
+    }
+    if (category === "Editing" && type === "span") {
+      return 6;
+    }
+    if (category === "Reel" && type === "link") {
+      return 7;
+    }
+    if (category === "Reel" && type === "span") {
+      return 8;
+    }
+  };
+
   return (
     <Container>
       <Link
@@ -104,10 +125,16 @@ export default function Categories({ categories, toggleDarkMode }) {
               category.title,
               toggleDarkMode
             )}
+            style={{ order: handleOrder(category.title, "link") }}
           >
             {category.title}
           </Link>
-          <span className={toggleDarkMode ? "active" : ""}>/</span>
+          <span
+            className={toggleDarkMode ? "active" : ""}
+            style={{ order: handleOrder(category.title, "span") }}
+          >
+            /
+          </span>
         </Fragment>
       ))}
     </Container>

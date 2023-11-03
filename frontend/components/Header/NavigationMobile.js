@@ -81,6 +81,15 @@ export default function Navigation({
       <ul>
         <li>
           <Link
+            href={`/?category=films`}
+            onClick={handleToggleMenu}
+            className={selectedCat === "films" ? "active" : ""}
+          >
+            Films
+          </Link>
+        </li>
+        <li>
+          <Link
             href={`/?category=editing`}
             onClick={handleToggleMenu}
             className={selectedCat === "editing" ? "active" : ""}
@@ -88,16 +97,6 @@ export default function Navigation({
             Editing
           </Link>
         </li>
-        <li>
-          <Link
-            href={`/?category=projects`}
-            onClick={handleToggleMenu}
-            className={selectedCat === "projects" ? "active" : ""}
-          >
-            Projects
-          </Link>
-        </li>
-
         <li>
           <Link
             href={`/?category=reel`}

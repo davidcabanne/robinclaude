@@ -34,7 +34,7 @@ const Wrapper = styled.div`
   padding: ${_var.marginM} 0px;
   display: flex;
   justify-content: space-between;
-  align-items: end;
+  align-items: center;
 
   @media ${_var.device.tablet_max} {
     align-items: start;
@@ -44,7 +44,7 @@ const Wrapper = styled.div`
 const Nav = styled.div`
   display: flex;
   justify-content: center;
-  align-items: end;
+  align-items: center;
   gap: ${_var.marginM};
 
   @media ${_var.device.tablet_max} {

@@ -16,6 +16,8 @@ const Container = styled.span`
 
 const Font = styled.span`
   font-size: ${_var.marginM};
+  font-weight: 800;
+  text-transform: uppercase;
 
   @media ${_var.device.tablet_max} {
     font-size: ${_var.marginM};
@@ -27,6 +29,7 @@ const Font = styled.span`
 
 const Jobs = styled.p`
   margin-left: 2px;
+  font-weight: 600;
 
   @media ${_var.device.mobileS_max} {
     font-size: 14px;
@@ -38,7 +41,7 @@ export default function Logo() {
     <Link href="/">
       <Container>
         <Font>Robin Claude</Font>
-        <Jobs>Director / Editor</Jobs>
+        <Jobs>Director &amp; Editor</Jobs>
       </Container>
     </Link>
   );

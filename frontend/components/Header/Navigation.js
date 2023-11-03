@@ -38,21 +38,20 @@ export default function Navigation({ selectedCat }) {
       <ul>
         <li>
           <Link
+            href={`/?category=films`}
+            className={selectedCat === "films" ? "active" : ""}
+          >
+            Films
+          </Link>
+        </li>
+        <li>
+          <Link
             href={`/?category=editing`}
             className={selectedCat === "editing" ? "active" : ""}
           >
             Editing
           </Link>
         </li>
-        <li>
-          <Link
-            href={`/?category=projects`}
-            className={selectedCat === "projects" ? "active" : ""}
-          >
-            Projects
-          </Link>
-        </li>
-
         <li>
           <Link
             href={`/?category=reel`}
