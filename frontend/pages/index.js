@@ -46,7 +46,7 @@ const Index = ({ posts, categories, toggleDarkMode, handleToggleDarkMode }) => {
         .map(
           ({ _id, title, slug = "", mainImage, imageDescription }) =>
             slug && (
-              <li key={_id}>
+              <li key={_id} style={{ listStyle: "none" }}>
                 <Link href={`/post/${encodeURIComponent(slug.current)}`}>
                   <Fade duration={500}>
                     <Picture>

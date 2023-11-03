@@ -7,6 +7,11 @@ const Ul = styled.ul`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: ${_var.marginM};
+  list-style: none;
+
+  & li {
+    list-style: none;
+  }
 
   @media ${_var.device.tablet_max} {
     grid-template-columns: 1fr;

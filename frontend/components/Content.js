@@ -1,5 +1,17 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import * as _var from "../styles/variables";
+
+const fadeIn = keyframes`
+0% {
+  opacity: 0;
+  transform: translateY(8px);
+}
+100% {
+  opacity: 1;
+  transform: translateY(0px);
+
+}
+`;
 
 const Container = styled.div`
   width: 100%;
@@ -7,6 +19,9 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: ${_var.marginS};
+  opacity: 0;
+  animation: ${fadeIn} 500ms ${_var.cubicBezier} forwards;
+  animation-delay: 350ms;
 
   @media ${_var.device.tablet_max} {
     margin-top: ${_var.marginL};

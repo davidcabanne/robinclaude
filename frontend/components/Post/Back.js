@@ -84,6 +84,8 @@ export default function Back({ toggleDarkMode }) {
           fillRule="evenodd"
           clipRule="evenodd"
           viewBox="0 0 512 376.83"
+          width="16px"
+          height="12px"
         >
           <path
             fillRule="nonzero"
