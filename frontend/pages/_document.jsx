@@ -1,4 +1,6 @@
+import Document from "next/document";
 import { Html, Head, Main, NextScript } from "next/document";
+import { ServerStyleSheet } from "styled-components";
 
 import {
   indexTitle,
@@ -7,62 +9,95 @@ import {
   indexImage,
 } from "@/seo";
 
-export default function Document() {
-  return (
-    <Html lang="en">
-      <title>{indexTitle}</title>
-      <meta name="description" content={indexDescription} />
+class MyDocument extends Document {
+  static async getInitialProps(ctx) {
+    const sheet = new ServerStyleSheet();
+    const originalRenderPage = ctx.renderPage;
 
-      <meta property="og:title" content={indexTitle} />
-      <meta property="og:url" content="https://www.synchronized.tv" />
-      <meta
-        property="og:site_name"
-        content="Synchronized | In-Video Intelligence"
-      />
-      <meta property="og:type" content="website" />
-      <meta property="og:description" content={indexDescription} />
-      <meta property="og:image:secure_url" content={indexImage_secure_url} />
-      <meta property="og:image" content={indexImage} />
-      <meta property="og:image:type" content="image/jpg" />
-      <meta property="og:image:width" content="384" />
-      <meta property="og:image:height" content="216" />
+    try {
+      ctx.renderPage = () =>
+        originalRenderPage({
+          enhanceApp: (App) => (props) =>
+            sheet.collectStyles(<App {...props} />),
+        });
 
-      <meta name="twitter:card" content={indexTitle} />
-      <meta name="twitter:site" content="@RobinClaude" />
-      <meta name="twitter:title" content={indexTitle} />
-      <meta name="twitter:description" content={indexDescription} />
-      <meta name="twitter:image" content={indexImage_secure_url} />
+      const initialProps = await Document.getInitialProps(ctx);
+      return {
+        ...initialProps,
+        styles: (
+          <>
+            {initialProps.styles}
+            {sheet.getStyleElement()}
+          </>
+        ),
+      };
+    } finally {
+      sheet.seal();
+    }
+  }
+  render() {
+    return (
+      <Html lang="en">
+        <title>{indexTitle}</title>
+        <meta name="description" content={indexDescription} />
 
-      <meta
-        name="keywords"
-        content="Robin Claude, director, editor, video, videos, film, films, editing, reel, projects, movies, camera"
-      />
-      <meta name="theme-color" content="#ffffff" />
-      <link
-        rel="icon"
-        type="image/x-icon"
-        sizes="any"
-        href="/images/favicon.ico"
-      />
-      <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico" />
-      <link
-        rel="icon"
-        type="image/x-icon"
-        sizes="32x32"
-        href="/images/favicon.ico"
-      />
-      <link
-        rel="icon"
-        type="image/x-icon"
-        sizes="16x16"
-        href="/images/favicon.ico"
-      />
+        <meta property="og:title" content={indexTitle} />
+        <meta property="og:url" content="https://www.synchronized.tv" />
+        <meta
+          property="og:site_name"
+          content="Synchronized | In-Video Intelligence"
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:description" content={indexDescription} />
+        <meta property="og:image:secure_url" content={indexImage_secure_url} />
+        <meta property="og:image" content={indexImage} />
+        <meta property="og:image:type" content="image/jpg" />
+        <meta property="og:image:width" content="384" />
+        <meta property="og:image:height" content="216" />
 
-      <Head />
-      <body>
-        <Main />
-        <NextScript />
-      </body>
-    </Html>
-  );
+        <meta name="twitter:card" content={indexTitle} />
+        <meta name="twitter:site" content="@RobinClaude" />
+        <meta name="twitter:title" content={indexTitle} />
+        <meta name="twitter:description" content={indexDescription} />
+        <meta name="twitter:image" content={indexImage_secure_url} />
+
+        <meta
+          name="keywords"
+          content="Robin Claude, director, editor, video, videos, film, films, editing, reel, projects, movies, camera"
+        />
+        <meta name="theme-color" content="#ffffff" />
+        <link
+          rel="icon"
+          type="image/x-icon"
+          sizes="any"
+          href="/images/favicon.ico"
+        />
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/images/favicon.ico"
+        />
+        <link
+          rel="icon"
+          type="image/x-icon"
+          sizes="32x32"
+          href="/images/favicon.ico"
+        />
+        <link
+          rel="icon"
+          type="image/x-icon"
+          sizes="16x16"
+          href="/images/favicon.ico"
+        />
+
+        <Head />
+        <body>
+          <Main />
+          <NextScript />
+        </body>
+      </Html>
+    );
+  }
 }
+
+export default MyDocument;
