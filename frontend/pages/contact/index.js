@@ -73,7 +73,7 @@ const Contact = ({ toggleDarkMode, handleToggleDarkMode }) => {
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             quality={50}
             placeholder="blur"
-            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mO8uBYAAlUBgHaEmg0AAAAASUVORK5CYII="
+            blurDataURL="data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAANABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAABAABBf/EACUQAAEEAQIFBQAAAAAAAAAAAAIBAwQRAAUhBgcTMUESIkJRcv/EABUBAQEAAAAAAAAAAAAAAAAAAAEE/8QAHBEAAgICAwAAAAAAAAAAAAAAAAEDEQISEzFR/9oADAMBAAIRAxEAPwDOb2pwhkReEdOU0iwaMzTdHD83gBdiRIseB0wM0FCO62VfGDe0lseIYk8nXHHOqikh7+rDywYkcxJQkwNF7+67LWKksjyhVeJdHZKJDVb6NfntljVgt/EjFPq8sdifjZ//2Q=="
             alt="Robin Claude holding a camera"
           />
         </Group>

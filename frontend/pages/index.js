@@ -24,6 +24,8 @@ const Index = ({ posts, categories, toggleDarkMode, handleToggleDarkMode }) => {
   const searchParams = useSearchParams();
   const selectedCat = searchParams.get("category");
 
+  console.log(posts);
+
   const handleRenderContent = (posts) => {
     const content =
       posts.length > 0 &&
@@ -52,13 +54,13 @@ const Index = ({ posts, categories, toggleDarkMode, handleToggleDarkMode }) => {
                     <Picture>
                       <p>{title}</p>
                       <Image
-                        src={urlFor(mainImage).url()}
+                        src={mainImage.url}
                         width={500}
                         height={300}
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                         alt={imageDescription}
                         placeholder="blur"
-                        blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mO8uBYAAlUBgHaEmg0AAAAASUVORK5CYII="
+                        blurDataURL={mainImage.metadata.lqip}
                       />
                     </Picture>
                   </Fade>
@@ -90,6 +92,17 @@ export async function getStaticProps() {
 
   const posts = await client.fetch(groq`
       *[_type == "post" && publishedAt < now()] | order(publishedAt desc)
+      {
+        ...,
+        "mainImage": mainImage.asset->{
+          url,
+          metadata {
+            lqip,
+            blurHash,
+            palette,
+          }
+        }
+      }
     `);
   return {
     props: {
