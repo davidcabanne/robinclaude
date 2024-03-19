@@ -20,7 +20,7 @@ const Btn = styled.button`
 export default function Button({ children }) {
   const handleClick = (event) => {
     event.preventDefault();
-    window.open("mailto:robin.claude@live.fr", "Mail");
+    window.open("mailto:robinclaude.contact@gmail.com", "Mail");
   };
 
   return (

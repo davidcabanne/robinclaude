@@ -28,10 +28,10 @@ const Contact = ({ toggleDarkMode, handleToggleDarkMode }) => {
             }}
           >
             <p>
-              I am a filmmaker based in Bordeaux, France. I have extensive
-              experience with both digital and film formats. I have traveled all
-              over the world and worked on hundreds of projects, from large to
-              small and everything in between.
+              I am a filmmaker based in Bordeaux, France. I've been working for
+              ten years on team projects as an editor and on smaller projects as
+              a director. I enjoy documenting and showcasing the work of others,
+              particularly in the fields of sport and music.
             </p>
             <p>Please reach out if you are interested in collaborating!</p>
             <Button>Email me!</Button>
