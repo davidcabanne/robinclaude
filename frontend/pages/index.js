@@ -1,5 +1,4 @@
 import React from "react";
-import Head from "next/head";
 import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
@@ -7,7 +6,7 @@ import * as _var from "../styles/variables";
 import { Fade } from "react-awesome-reveal";
 
 import groq from "groq";
-import imageUrlBuilder from "@sanity/image-url";
+// import imageUrlBuilder from "@sanity/image-url";
 import client from "../client";
 
 import Layout from "@/components/Layout";
@@ -16,15 +15,13 @@ import Grid from "@/components/Home/Grid";
 import Categories from "@/components/Home/Categories";
 import Picture from "@/components/Picture";
 
-function urlFor(source) {
-  return imageUrlBuilder(client).image(source);
-}
+// function urlFor(source) {
+//   return imageUrlBuilder(client).image(source);
+// }
 
 const Index = ({ posts, categories, toggleDarkMode, handleToggleDarkMode }) => {
   const searchParams = useSearchParams();
   const selectedCat = searchParams.get("category");
-
-  console.log(posts);
 
   const handleRenderContent = (posts) => {
     const content =
